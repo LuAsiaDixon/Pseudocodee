@@ -1,0 +1,93 @@
+// This pseudocode is intended to display employee net pay values.
+// All employees have a standard $45 deduction from their checks.
+// If an employee does not earn enough to cover the deduction
+// an error message is displayed.
+start
+   Declarations
+      string name
+      num hours
+      num rate
+      string DEDUCTION = 45
+      string EOFNAME = "ZZZ"
+      num gross
+      num net
+   output "Enter first name or ", EOFNAME, " to quit"
+   input name
+   if name not equal to EOFNAME
+      output "Enter hours worked for ", name
+      input hours
+      output "Enter hourly rate for ", name
+      input rate
+      gross = hours * rate
+      net = gross - DEDUCTION
+      while net > 0 then
+         output "Net pay for ", name, " is ", net
+      else
+          output "Deductions not covered. Net is 0."
+      endwhile
+      output "Enter next name or ", EOFNAME, " to quit"
+      input name
+   endif
+   output "End of job"
+stop
+
+Here is the correct pseudocode:
+
+
+// This pseudocode is intended to display employee net pay values.
+// All employees have a standard $45 deduction from their checks.
+// If an employee does not earn enough to cover the deduction
+// an error message is displayed.
+start
+   Declarations
+      string name
+      num hours
+      num rate
+      num DEDUCTION = 45  // Corrected to a numeric type
+      string EOFNAME = "ZZZ"
+      num gross
+      num net
+
+   // Loop to allow continuous employee input
+   output "Enter first name or ", EOFNAME, " to quit"
+   input name
+
+   while name <> EOFNAME  // Loop while name is not EOFNAME
+      output "Enter hours worked for ", name
+      input hours
+      output "Enter hourly rate for ", name
+      input rate
+
+      gross = hours * rate
+      net = gross - DEDUCTION
+
+      if net > 0 then  // Corrected from while loop to if-else
+         output "Net pay for ", name, " is ", net
+      else
+         output "Deductions not covered. Net is 0."
+      endif
+
+      output "Enter next name or ", EOFNAME, " to quit"
+      input name  // Input the next employee's name
+   endwhile
+
+   output "End of job"
+stop
+
+Explanation of Changes:
+
+Corrected Data Type for DEDUCTION: Changed DEDUCTION from a string to a number (num DEDUCTION = 45) 
+to allow for arithmetic operations.
+
+Replaced while Loop with if-else: The original code had a while net > 0 loop, which would result in 
+an infinite loop since the net value doesn't change within the loop. I replaced it with an if-else 
+statement to check whether the net pay is greater than zero, and output the corresponding message.
+
+Loop for Multiple Employees: Added a while loop to continuously prompt for employee details until the
+ user enters EOFNAME. This allows the program to handle multiple employees.
+
+Correct Input/Output Flow: Ensured that after processing each employee, the program correctly prompts for
+ the next employee's details, or quits if EOFNAME is entered.
+
+
+
